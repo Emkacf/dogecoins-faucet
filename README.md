@@ -11,6 +11,7 @@ You must have dogecoin daemon compiled from source - https://github.com/dogecoin
 
 changelog
 ================
+v1.1 - Added db file
 v1.0 - Doesn't have automatic database making yet! Wait 'till tomorrow for new commit with database 
 
 credits
