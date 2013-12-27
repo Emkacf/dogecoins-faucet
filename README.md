@@ -3,7 +3,7 @@ dogecoins-faucet
 
 You can see this faucet on http://faucet.dogecoins.pl/
 
-I'm just a newbie so I will appreciate your help with further developing this faucet.
+I'm just a newbie so I will appreciate your help with further developing this faucet. You can also visit our official polish Dogecoin portal http://dogecoins.pl and give us donation in DOGE to keep our faucet full of money.
 
 requirements
 ================
