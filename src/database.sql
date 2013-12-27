@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Czas wygenerowania: 27 Gru 2013, 04:51
--- Wersja serwera: 5.5.34
--- Wersja PHP: 5.3.10-1ubuntu3.9
-
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
