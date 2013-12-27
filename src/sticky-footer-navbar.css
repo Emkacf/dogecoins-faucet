@@ -1,0 +1,80 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+  font-family: 'Source Sans Pro',sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+	min-height: 100%;
+	height: auto;	
+	background: url('img/bg.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover; 
+	-moz-background-size: cover; 
+	-o-background-size: cover; 
+	background-size: cover; 
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.navbar-default {
+	background-color: transparent;
+	border-color: transparent;
+	
+}
+
+.nav > li {
+position: relative;
+display: block;
+font-size: 1.3em;
+	color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #fff;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	font-family: 'Source Sans Pro',sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #fff;
+	background-color: transparent;
+}
+
+#wrap > .container {
+  padding: 60px 15px 0;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.gora{
+	margin-top:20%;
+margin-bottom:5%;
+}
+
+.gora2{
+	margin-top:5%;
+
+}
+
+.center{
+text-align:center;
+}
+code {
+  font-size: 80%;
+}
