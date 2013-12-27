@@ -1,7 +1,7 @@
 <?php
 	require_once 'jsonRPCClient.php';
 	$rpcname = '';
-	$rpcpassword = 'l';
+	$rpcpassword = '';
 	$host = '127.0.0.1';
 	$port = '22555';
 	
