@@ -13,7 +13,11 @@
 
 
     /**
-     * Liczymy $payout_average
+     * Zwraca uśrednioną wartość wypłaty
+     * na podstawie historii poprzednich wypłat.
+     *
+     * @param  resource $link
+     * @return float
      */
     function get_avarage_payout($link)
     {
@@ -31,7 +35,8 @@
     }
 
     /**
-     * Liczymy $payout_daily
+     * @param  resource $link
+     * @return mixed
      */
     function get_daily_payout($link)
     {
@@ -47,7 +52,10 @@
     }
 
     /**
-     * Liczymy $payout_total
+     * Zwraca sumę wszystkich wypłat.
+     *
+     * @param  resource $link
+     * @return mixed
      */
     function get_total_payout($link)
     {
