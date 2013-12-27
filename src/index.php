@@ -76,17 +76,19 @@
                     $doge = $_GET['doge'];
                 ?>
 
-                <?php if (1 == $status): ?>
-                    <p class="center">You gained <?php echo $doge." <strong>DOGE</strong>." ?><br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
-                <?php elseif (2 == $status): ?>
-                    <p class="center">Sorry but we are out of money T_T.<br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
-                <?php elseif (3 == $status): ?>
-                    <p class="center">Sorry but you were using this faucet today. Please come back tommorrow.<br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
-                <?php else: ?>
-                    <p class="center">This water bowl (aka "<strong>faucet</strong>") is a service that allows you to receive free <strong>DogeCoins</strong> by simply inputing your address.<br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
-                <?php endif; ?>
+                <p class="center">
+                    <?php if (1 == $status): ?>
+                        You gained <?php echo $doge." <strong>DOGE</strong>." ?><br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
+                    <?php elseif (2 == $status): ?>
+                        Sorry but we are out of money T_T.<br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
+                    <?php elseif (3 == $status): ?>
+                        Sorry but you were using this faucet today. Please come back tommorrow.<br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
+                    <?php else: ?>
+                        This water bowl (aka "<strong>faucet</strong>") is a service that allows you to receive free <strong>DogeCoins</strong> by simply inputing your address.<br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
+                    <?php endif; ?>
 
-                <?php echo $dogecoin->getaccountaddress('dogecoins'); ?></p>
+                    <?php echo $dogecoin->getaccountaddress('dogecoins'); ?>
+                </p>
 
                 <div class="row gora2">
                     <div class="col-sm-4 center">
