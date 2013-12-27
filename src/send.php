@@ -5,7 +5,7 @@ error_reporting(0);
 include('includes/config.php');
 
 /* Just things which are going to database like ip etc. */
-$today = date("y-m-d");
+$today = date('y-m-d');
 $ip = $_SERVER['REMOTE_ADDR'];
 $address = $_POST['address'];
 $amount = $dogecoin->getbalance();
@@ -30,7 +30,7 @@ if ($amount < 10) {
     */
 
 
-    $check = "SELECT * FROM logs WHERE DATE(date)=DATE(NOW()) AND ((ip='$ip') OR (wallet='$address')) " or die("Error in the consult..".mysqli_error($link));
+    $check = sprintf("SELECT * FROM logs WHERE DATE(date) = DATE(NOW()) AND ((ip = '%s') OR (wallet = '%s')) ", $ip, $address) or die('Error in the consult…'.mysqli_error($link));
 
     $result2 = mysqli_query($link, $check);
 
@@ -41,10 +41,10 @@ if ($amount < 10) {
         $value = 0;
     } else {
         $transaction = $dogecoin->sendtoaddress($address, (float) $value);
-        $query = "INSERT INTO logs VALUES (null,'$today',$value,'$address','$ip')" or die("Error in the consult..".mysqli_error($link));
+        $query = sprintf("INSERT INTO logs VALUES (null, '%s', %s, '%s', '%s')", $today, $value, $address, $ip) or die('Error in the consult…'.mysqli_error($link));
         $result = mysqli_query($link, $query);
         $status = 1;
     }
 }
 
-header("Location: index.php?status=".$status."&doge=".$value);
+header('Location: index.php?status='.$status.'&doge='.$value);
