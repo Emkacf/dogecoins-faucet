@@ -28,7 +28,11 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+        <link
+            href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+            rel="stylesheet"
+            type="text/css"
+        />
     </head>
 
     <body>
@@ -41,7 +45,12 @@
             <div class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <button
+                            type="button"
+                            class="navbar-toggle"
+                            data-toggle="collapse"
+                            data-target=".navbar-collapse"
+                        >
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -63,7 +72,13 @@
                 <form class="form-horizontal gora" role="form" action="send.php" method="POST">
                     <div class="form-group">
                         <div class="col-sm-10">
-                            <input type="text" name="address" class="form-control input-lg" id="inputEmail3" placeholder="Input Ɖogecoin Wallet Address And Get Free Dogecoins">
+                            <input
+                                type="text"
+                                name="address"
+                                class="form-control input-lg"
+                                id="inputEmail3"
+                                placeholder="Input Ɖogecoin Wallet Address And Get Free Dogecoins"
+                            />
                         </div>
                         <div class="col-sm-2">
                             <button type="submit" class="btn btn-default btn-lg">To the moon!</button>
@@ -78,13 +93,26 @@
 
                 <p class="center">
                     <?php if (1 == $status): ?>
-                        You gained <?php echo $doge; ?> <strong>DOGE</strong>.<br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
+                        You gained <?php echo $doge; ?> <strong>DOGE</strong>.
+                        <br>
+                        Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.
+                        <br>
                     <?php elseif (2 == $status): ?>
-                        Sorry but we are out of money T_T.<br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
+                        Sorry but we are out of money T_T.
+                        <br>
+                        Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.
+                        <br>
                     <?php elseif (3 == $status): ?>
-                        Sorry but you were using this faucet today. Please come back tommorrow.<br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
+                        Sorry but you were using this faucet today. Please come back tommorrow.
+                        <br>
+                        Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.
+                        <br>
                     <?php else: ?>
-                        This water bowl (aka "<strong>faucet</strong>") is a service that allows you to receive free <strong>DogeCoins</strong> by simply inputing your address.<br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
+                        This water bowl (aka "<strong>faucet</strong>") is a service
+                        that allows you to receive free <strong>DogeCoins</strong> by simply inputing your address.
+                        <br>
+                        Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.
+                        <br>
                     <?php endif; ?>
 
                     <?php echo $dogecoin->getaccountaddress('dogecoins'); ?>
