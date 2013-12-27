@@ -7,7 +7,7 @@ I'm just a newbie so I will appreciate your help with further developing this fa
 
 requirements
 ================
-You must have dogecoin daemon compiled from source - https://github.com/dogecoin/dogecoin
+You must have dogecoin daemon compiled on your server - https://github.com/dogecoin/dogecoin
 
 changelog
 ================
