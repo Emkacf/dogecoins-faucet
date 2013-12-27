@@ -14,9 +14,9 @@ $value = rand(1, 10);
 if ($amount < 10) {
     $status = 2;
 } else {
-	/*Uncomment if you want your payout be dependent on amount you have in wallet*/
+    /*Uncomment if you want your payout be dependent on amount you have in wallet*/
     /*
-	if ($amount > 10) {
+    if ($amount > 10) {
         if ($amount > 100000) {
             $value = rand(1, 1000);
         } elseif ($amount > 10000) {
