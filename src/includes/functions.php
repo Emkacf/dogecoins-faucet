@@ -9,7 +9,7 @@
  */
 function get_avarage_payout($db_link)
 {
-    $db_query = 'SELECT * FROM logs' or die('Error in the consult…'.mysqli_error($db_link));
+    $db_query = 'SELECT * FROM logs';
     $db_result = mysqli_query($db_link, $db_query);
 
     $payout_average = 0;
@@ -29,7 +29,7 @@ function get_avarage_payout($db_link)
  */
 function get_daily_payout($db_link)
 {
-    $db_query = 'SELECT * FROM logs WHERE DATE(date) = DATE(NOW())' or die('Error in the consult…'.mysqli_error($db_link));
+    $db_query = 'SELECT * FROM logs WHERE DATE(date) = DATE(NOW())';
     $db_result = mysqli_query($db_link, $db_query);
 
     $payout_daily = 0;
@@ -49,7 +49,7 @@ function get_daily_payout($db_link)
  */
 function get_total_payout($db_link)
 {
-    $db_query = 'SELECT * FROM logs' or die('Error in the consult…'.mysqli_error($db_link));
+    $db_query = 'SELECT * FROM logs';
     $db_result = mysqli_query($db_link, $db_query);
 
     $payout_total = 0;
