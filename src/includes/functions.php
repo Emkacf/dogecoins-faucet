@@ -4,35 +4,37 @@
  * Zwraca uśrednioną wartość wypłaty
  * na podstawie historii poprzednich wypłat.
  *
- * @param  resource $link
+ * @param  resource $db_link
  * @return float
  */
-function get_avarage_payout($link)
+function get_avarage_payout($db_link)
 {
-    $check = 'SELECT * FROM logs' or die('Error in the consult…'.mysqli_error($link));
-    $result = mysqli_query($link, $check);
+    $db_query = 'SELECT * FROM logs' or die('Error in the consult…'.mysqli_error($db_link));
+    $db_result = mysqli_query($db_link, $db_query);
+
     $payout_average = 0;
 
-    while ($row = mysqli_fetch_array($result)) {
+    while ($row = mysqli_fetch_array($db_result)) {
         $payout_average = $payout_average + $row['payout'];
     }
 
-    $am = mysqli_num_rows($result);
+    $am = mysqli_num_rows($db_result);
 
     return $payout_average / $am;
 }
 
 /**
- * @param  resource $link
+ * @param  resource $db_link
  * @return mixed
  */
-function get_daily_payout($link)
+function get_daily_payout($db_link)
 {
-    $check = 'SELECT * FROM logs WHERE DATE(date) = DATE(NOW())' or die('Error in the consult…'.mysqli_error($link));
-    $result2 = mysqli_query($link, $check);
+    $db_query = 'SELECT * FROM logs WHERE DATE(date) = DATE(NOW())' or die('Error in the consult…'.mysqli_error($db_link));
+    $db_result = mysqli_query($db_link, $db_query);
+
     $payout_daily = 0;
 
-    while ($row = mysqli_fetch_array($result2)) {
+    while ($row = mysqli_fetch_array($db_result)) {
         $payout_daily = $payout_daily + $row['payout'];
     }
 
@@ -42,16 +44,17 @@ function get_daily_payout($link)
 /**
  * Zwraca sumę wszystkich wypłat.
  *
- * @param  resource $link
+ * @param  resource $db_link
  * @return mixed
  */
-function get_total_payout($link)
+function get_total_payout($db_link)
 {
-    $check = 'SELECT * FROM logs' or die('Error in the consult…'.mysqli_error($link));
-    $result2 = mysqli_query($link, $check);
+    $db_query = 'SELECT * FROM logs' or die('Error in the consult…'.mysqli_error($db_link));
+    $db_result = mysqli_query($db_link, $db_query);
+
     $payout_total = 0;
 
-    while ($row = mysqli_fetch_array($result2)) {
+    while ($row = mysqli_fetch_array($db_result)) {
         $payout_total = $payout_total + $row['payout'];
     }
 
