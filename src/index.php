@@ -2,6 +2,54 @@
 
     error_reporting(0);
 
+    require_once 'includes/config.php';
+
+
+    $status = $_GET['status'];
+    $doge = $_GET['doge'];
+
+
+    $account_address = $dogecoin->getaccountaddress('dogecoins');
+
+
+    /**
+     * Liczymy $payout_average
+     */
+    $check = 'SELECT * FROM logs' or die('Error in the consult…'.mysqli_error($link));
+    $result = mysqli_query($link, $check);
+    $payout_average = 0;
+
+    while ($row = mysqli_fetch_array($result)) {
+        $payout_average = $payout_average + $row['payout'];
+    }
+
+    $am = mysqli_num_rows($result);
+    $payout_average = $payout_average / $am;
+
+
+    /**
+     * Liczymy $payout_daily
+     */
+    $check = 'SELECT * FROM logs WHERE DATE(date) = DATE(NOW())' or die('Error in the consult…'.mysqli_error($link));
+    $result2 = mysqli_query($link, $check);
+    $payout_daily = 0;
+
+    while ($row = mysqli_fetch_array($result2)) {
+        $payout_daily = $payout_daily + $row['payout'];
+    }
+
+
+    /**
+     * Liczymy $payout_total
+     */
+    $check = 'SELECT * FROM logs' or die('Error in the consult…'.mysqli_error($link));
+    $result2 = mysqli_query($link, $check);
+    $payout_total = 0;
+
+    while ($row = mysqli_fetch_array($result2)) {
+        $payout_total = $payout_total + $row['payout'];
+    }
+
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -36,8 +84,6 @@
     </head>
 
     <body>
-        <?php require_once 'includes/config.php'; ?>
-
         <!-- Wrap all page content here -->
         <div id="wrap">
 
@@ -86,11 +132,6 @@
                     </div>
                 </form>
 
-                <?php
-                    $status = $_GET['status'];
-                    $doge = $_GET['doge'];
-                ?>
-
                 <p class="center">
                     <?php if (1 == $status): ?>
                         You gained <?php echo $doge; ?> <strong>DOGE</strong>.
@@ -115,58 +156,25 @@
                         <br>
                     <?php endif; ?>
 
-                    <?php echo $dogecoin->getaccountaddress('dogecoins'); ?>
+                    <?php echo $account_address; ?>
                 </p>
 
                 <div class="row gora2">
                     <div class="col-sm-4 center">
-                        Average Payout:<br>
-
-                        <?php
-                            $check = 'SELECT * FROM logs' or die('Error in the consult…'.mysqli_error($link));
-                            $result = mysqli_query($link, $check);
-                            $payout_average = 0;
-
-                            while ($row = mysqli_fetch_array($result)) {
-                                $payout_average = $payout_average + $row['payout'];
-                            }
-
-                            $am = mysqli_num_rows($result);
-                            $payout_average = $payout_average / $am;
-                        ?>
-
+                        Average Payout:
+                        <br>
                         <strong><?php echo $payout_average; ?></strong>
                     </div>
 
                     <div class="col-sm-4 center">
-                        Daily Payout:<br>
-
-                        <?php
-                            $check = 'SELECT * FROM logs WHERE DATE(date) = DATE(NOW())' or die('Error in the consult…'.mysqli_error($link));
-                            $result2 = mysqli_query($link, $check);
-                            $payout_daily = 0;
-
-                            while ($row = mysqli_fetch_array($result2)) {
-                                $payout_daily = $payout_daily + $row['payout'];
-                            }
-                        ?>
-
+                        Daily Payout:
+                        <br>
                         <strong><?php echo $payout_daily; ?></strong>
                     </div>
 
                     <div class="col-sm-4 center">
-                        Total Payout:<br>
-
-                        <?php
-                            $check = 'SELECT * FROM logs' or die('Error in the consult…'.mysqli_error($link));
-                            $result2 = mysqli_query($link, $check);
-                            $payout_total = 0;
-
-                            while ($row = mysqli_fetch_array($result2)) {
-                                $payout_total = $payout_total + $row['payout'];
-                            }
-                        ?>
-
+                        Total Payout:
+                        <br>
                         <strong><?php echo $payout_total; ?></strong>
                     </div>
                 </div>
