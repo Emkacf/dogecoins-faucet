@@ -16,4 +16,5 @@ v1.0 - Doesn't have automatic database making yet! Wait 'till tomorrow for new c
 
 credits
 ================
-Credits for developers of json RPC which I am using to communicate with coin API
+Credits for developers of json RPC which I am using to communicate with coin API 
+Big thanks for Marcin Mrotek (http://marcinmrotek.pl) for graphic design
