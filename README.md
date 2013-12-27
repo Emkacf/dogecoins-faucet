@@ -5,6 +5,8 @@ You can see this faucet on http://faucet.dogecoins.pl/
 
 I'm just a newbie so I will appreciate your help with further developing this faucet. You can also visit our official polish Dogecoin portal http://dogecoins.pl and give us donation in DOGE to keep our faucet full of money.
 
+You can donate us: DPJ3BjZoZBY36wq1R5kS7SAV1UaQRLHQV3
+
 requirements
 ================
 You must have dogecoin daemon compiled on your server - https://github.com/dogecoin/dogecoin
