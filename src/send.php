@@ -30,7 +30,7 @@ if ($amount < 10) {
     */
 
 
-    $check = sprintf("SELECT * FROM logs WHERE DATE(date) = DATE(NOW()) AND ((ip = '%s') OR (wallet = '%s')) ", $ip, $address) or die('Error in the consult…'.mysqli_error($link));
+    $check = sprintf("SELECT * FROM logs WHERE DATE(date) = DATE(NOW()) AND ((ip = '%s') OR (wallet = '%s')) ", $ip, $address);
 
     $result2 = mysqli_query($link, $check);
 
@@ -41,7 +41,7 @@ if ($amount < 10) {
         $value = 0;
     } else {
         $transaction = $dogecoin->sendtoaddress($address, (float) $value);
-        $query = sprintf("INSERT INTO logs VALUES (null, '%s', %s, '%s', '%s')", $today, $value, $address, $ip) or die('Error in the consult…'.mysqli_error($link));
+        $query = sprintf("INSERT INTO logs VALUES (null, '%s', %s, '%s', '%s')", $today, $value, $address, $ip);
         $result = mysqli_query($link, $query);
         $status = 1;
     }
