@@ -78,7 +78,7 @@
 
                 <p class="center">
                     <?php if (1 == $status): ?>
-                        You gained <?php echo $doge." <strong>DOGE</strong>." ?><br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
+                        You gained <?php echo $doge; ?> <strong>DOGE</strong>.<br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
                     <?php elseif (2 == $status): ?>
                         Sorry but we are out of money T_T.<br>Please donate us so there will be water in our bowl so we can give you <strong>DOGE</strong>.<br>
                     <?php elseif (3 == $status): ?>
@@ -93,43 +93,53 @@
                 <div class="row gora2">
                     <div class="col-sm-4 center">
                         Average Payout:<br>
+
                         <?php
-                            $check = "SELECT * FROM logs" or die("Error in the consult..".mysqli_error($link));
+                            $check = 'SELECT * FROM logs' or die('Error in the consult…'.mysqli_error($link));
                             $result = mysqli_query($link, $check);
                             $payout_average = 0;
+
                             while ($row = mysqli_fetch_array($result)) {
-                                $payout_average = $payout_average + $row["payout"];
+                                $payout_average = $payout_average + $row['payout'];
                             }
+
                             $am = mysqli_num_rows($result);
                             $payout_average = $payout_average / $am;
-                            echo "<strong>".$payout_average."</strong>";
                         ?>
+
+                        <strong><?php echo $payout_average; ?></strong>
                     </div>
 
                     <div class="col-sm-4 center">
                         Daily Payout:<br>
+
                         <?php
-                            $check = "SELECT * FROM logs WHERE DATE(date)=DATE(NOW())" or die("Error in the consult..".mysqli_error($link));
+                            $check = 'SELECT * FROM logs WHERE DATE(date) = DATE(NOW())' or die('Error in the consult…'.mysqli_error($link));
                             $result2 = mysqli_query($link, $check);
                             $payout_daily = 0;
+
                             while ($row = mysqli_fetch_array($result2)) {
-                                $payout_daily = $payout_daily + $row["payout"];
+                                $payout_daily = $payout_daily + $row['payout'];
                             }
-                            echo "<strong>".$payout_daily."</strong>";
                         ?>
+
+                        <strong><?php echo $payout_daily; ?></strong>
                     </div>
 
                     <div class="col-sm-4 center">
                         Total Payout:<br>
+
                         <?php
-                            $check = "SELECT * FROM logs" or die("Error in the consult..".mysqli_error($link));
+                            $check = 'SELECT * FROM logs' or die('Error in the consult…'.mysqli_error($link));
                             $result2 = mysqli_query($link, $check);
                             $payout_total = 0;
+
                             while ($row = mysqli_fetch_array($result2)) {
-                                $payout_total = $payout_total + $row["payout"];
+                                $payout_total = $payout_total + $row['payout'];
                             }
-                            echo "<strong>".$payout_total."</strong>";
                         ?>
+
+                        <strong><?php echo $payout_total; ?></strong>
                     </div>
                 </div>
 
