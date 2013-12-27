@@ -2,7 +2,7 @@
 
 error_reporting(0);
 
-include('includes/config.php');
+require_once 'includes/config.php';
 
 /* Just things which are going to database like ip etc. */
 $today = date('y-m-d');

@@ -36,7 +36,7 @@
     </head>
 
     <body>
-        <?php include('includes/config.php'); ?>
+        <?php require_once 'includes/config.php'; ?>
 
         <!-- Wrap all page content here -->
         <div id="wrap">
