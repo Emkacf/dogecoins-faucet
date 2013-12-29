@@ -6,6 +6,12 @@
 require_once APP_PATH.'includes/jsonRPCClient.php';
 require_once APP_PATH.'includes/functions.php';
 
+/**
+ * Ładujemy kontrolery
+ */
+require_once APP_PATH.'includes/controller/index.php';
+require_once APP_PATH.'includes/controller/send.php';
+
 
 /**
  * Ładujemy konfigurację
