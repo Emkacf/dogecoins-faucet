@@ -1,7 +1,5 @@
 <?php defined('APP_PATH') OR die('Access denied');
 
-require_once APP_PATH.'includes/jsonRPCClient.php';
-
 $rpcname = '';
 $rpcpassword = '';
 $host = '127.0.0.1';
