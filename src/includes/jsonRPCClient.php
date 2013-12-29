@@ -1,4 +1,5 @@
 <?php
+
 /*
 					COPYRIGHT
 
@@ -28,14 +29,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  * @author sergio <jsonrpcphp@inservibile.org>
  */
 class jsonRPCClient {
-	
+
 	/**
 	 * Debug state
 	 *
 	 * @var boolean
 	 */
 	private $debug;
-	
+
 	/**
 	 * The server URL
 	 *
@@ -54,7 +55,7 @@ class jsonRPCClient {
 	 * @var boolean
 	 */
 	private $notification = false;
-	
+
 	/**
 	 * Takes the connection parameters
 	 *
@@ -71,7 +72,7 @@ class jsonRPCClient {
 		// message id
 		$this->id = 1;
 	}
-	
+
 	/**
 	 * Sets the notification state of the object. In this state, notifications are performed, instead of requests.
 	 *
@@ -83,7 +84,7 @@ class jsonRPCClient {
 							:
 							$this->notification = true;
 	}
-	
+
 	/**
 	 * Performs a jsonRCP request and gets the results as an array
 	 *
@@ -92,12 +93,12 @@ class jsonRPCClient {
 	 * @return array
 	 */
 	public function __call($method,$params) {
-		
+
 		// check
 		if (!is_scalar($method)) {
 			throw new Exception('Method name has no scalar value');
 		}
-		
+
 		// check
 		if (is_array($params)) {
 			// no keys
@@ -105,14 +106,14 @@ class jsonRPCClient {
 		} else {
 			throw new Exception('Params must be given as array');
 		}
-		
+
 		// sets notification or request task
 		if ($this->notification) {
 			$currentId = NULL;
 		} else {
 			$currentId = $this->id;
 		}
-		
+
 		// prepares the request
 		$request = array(
 						'method' => $method,
@@ -121,7 +122,7 @@ class jsonRPCClient {
 						);
 		$request = json_encode($request);
 		$this->debug && $this->debug.='***** Request *****'."\n".$request."\n".'***** End Of request *****'."\n\n";
-		
+
 		// performs the HTTP POST
 		$opts = array ('http' => array (
 							'method'  => 'POST',
@@ -139,12 +140,12 @@ class jsonRPCClient {
 		} else {
 			throw new Exception('Unable to connect to '.$this->url);
 		}
-		
+
 		// debug output
 		if ($this->debug) {
 			echo nl2br($debug);
 		}
-		
+
 		// final checks and return
 		if (!$this->notification) {
 			// check
@@ -154,12 +155,11 @@ class jsonRPCClient {
 			if (!is_null($response['error'])) {
 				throw new Exception('Request error: '.$response['error']);
 			}
-			
+
 			return $response['result'];
-			
+
 		} else {
 			return true;
 		}
 	}
 }
-?>
