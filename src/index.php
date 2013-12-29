@@ -2,8 +2,14 @@
 
     error_reporting(0);
 
-    require_once 'includes/config.php';
-    require_once 'includes/functions.php';
+    /**
+     * Ścieżka do użycia przy ładowaniu podplików
+     * oraz dodatkowo zabezpieczenie przed ich bezpośrednim wywołaniem.
+     */
+    define('APP_PATH', __DIR__.DIRECTORY_SEPARATOR);
+
+    require_once APP_PATH.'includes/config.php';
+    require_once APP_PATH.'includes/functions.php';
 
 
     $status = $_GET['status'];

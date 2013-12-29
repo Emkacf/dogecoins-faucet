@@ -1,4 +1,4 @@
-<?php
+<?php defined('APP_PATH') OR die('Access denied');
 
 /**
  * Zwraca uśrednioną wartość wypłaty
