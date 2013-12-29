@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Nie wyświetlamy błędów użytkownikom.
+ */
 error_reporting(0);
 
 /**
@@ -8,13 +11,7 @@ error_reporting(0);
  */
 define('APP_PATH', __DIR__.DIRECTORY_SEPARATOR);
 
-require_once APP_PATH.'includes/jsonRPCClient.php';
-require_once APP_PATH.'includes/functions.php';
-
-require_once APP_PATH.'includes/config.php';
-
-
-$page = get_request_page();
+require_once APP_PATH.'includes/bootstrap.php';
 
 if (empty($page)) {
     /**
