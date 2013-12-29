@@ -1,6 +1,6 @@
-<?php
+<?php defined('APP_PATH') OR die('Access denied');
 
-require_once 'jsonRPCClient.php';
+require_once APP_PATH.'includes/jsonRPCClient.php';
 
 $rpcname = '';
 $rpcpassword = '';
@@ -11,4 +11,4 @@ $url = sprintf('http://%s:%s@%s:%s/', $rpcname, $rpcpassword, $host, $port);
 
 $dogecoin = new jsonRPCClient($url);
 
-$link = mysqli_connect('localhost', 'USER', 'PASSWORD', 'DBNAME') or die('Error '.mysqli_error($link));
+$link = mysqli_connect('localhost', 'USER', 'PASSWORD', 'DBNAME') OR die('Error '.mysqli_error($link));

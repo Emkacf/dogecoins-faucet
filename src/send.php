@@ -2,7 +2,13 @@
 
 error_reporting(0);
 
-require_once 'includes/config.php';
+/**
+ * Ścieżka do użycia przy ładowaniu podplików
+ * oraz dodatkowo zabezpieczenie przed ich bezpośrednim wywołaniem.
+ */
+define('APP_PATH', __DIR__.DIRECTORY_SEPARATOR);
+
+require_once APP_PATH.'includes/config.php';
 
 /* Just things which are going to database like ip etc. */
 $today = date('y-m-d');

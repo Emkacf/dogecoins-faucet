@@ -1,4 +1,27 @@
-<?php
+<?php defined('APP_PATH') OR die('Access denied');
+
+/**
+ * Ładuje i wyświetla wybrany widok.
+ *
+ * @param string $name Nazwa widoku
+ * @param array  $vars Tablica asocjacyjna zmiennych do użycia w widoku
+ */
+function print_view($name, array $vars = array())
+{
+    // zakładamy, że wszystkie widoki są w odpowiednim katalogu
+    $view_path = APP_PATH.'view/'.$name.'.php';
+
+    // upewniamy się, że plik z widokiem istnieje
+    if (!is_file($view_path)) {
+        die('Internal Server Error');
+    }
+
+    // rozpakowujemy tablicę asocjacyjną do zmiennych dla widoku
+    extract($vars);
+
+    // ładujemy widok
+    require_once $view_path;
+}
 
 /**
  * Zwraca uśrednioną wartość wypłaty
