@@ -18,7 +18,7 @@ $app = require_once APP_PATH.'includes/bootstrap.php';
 
 $page     = $app['page'];
 $dogecoin = $app['dogecoin'];
-$link     = $app['link'];
+$db_link  = $app['db_link'];
 
 /**
  * Ładujemy odpowiednią stronę
@@ -33,9 +33,9 @@ if (empty($page)) {
 
     $account_address = $dogecoin->getaccountaddress('dogecoins');
 
-    $payout_average = get_avarage_payout($link);
-    $payout_daily = get_daily_payout($link);
-    $payout_total = get_total_payout($link);
+    $payout_average = get_avarage_payout($db_link);
+    $payout_daily = get_daily_payout($db_link);
+    $payout_total = get_total_payout($db_link);
 
     print_view('template/template', array(
         'content_view' => 'page/index',
@@ -78,19 +78,30 @@ if (empty($page)) {
         */
 
 
-        $check = sprintf("SELECT * FROM logs WHERE DATE(date) = DATE(NOW()) AND ((ip = '%s') OR (wallet = '%s')) ", $ip, $address);
+        $check = sprintf(
+            "SELECT * FROM logs WHERE DATE(date) = DATE(NOW()) AND ((ip = '%s') OR (wallet = '%s')) ",
+            $ip,
+            $address
+        );
 
-        $result2 = mysqli_query($link, $check);
+        $result = mysqli_query($db_link, $check);
 
-        echo mysqli_num_rows($result2);
-
-        if (mysqli_num_rows($result2) > 0) {
+        if (mysqli_num_rows($result) > 0) {
             $status = 3;
             $value = 0;
         } else {
             $transaction = $dogecoin->sendtoaddress($address, (float) $value);
-            $query = sprintf("INSERT INTO logs VALUES (null, '%s', %s, '%s', '%s')", $today, $value, $address, $ip);
-            $result = mysqli_query($link, $query);
+
+            $query = sprintf(
+                "INSERT INTO logs VALUES (null, '%s', %s, '%s', '%s')",
+                $today,
+                $value,
+                $address,
+                $ip
+            );
+
+            mysqli_query($db_link, $query);
+
             $status = 1;
         }
     }

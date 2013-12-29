@@ -28,13 +28,13 @@ $dogecoin = new jsonRPCClient(
     )
 );
 
-$link =
+$db_link =
     mysqli_connect(
         $config['database']['host'],
         $config['database']['user'],
         $config['database']['pass'],
         $config['database']['name']
-    ) OR die('Database error '.mysqli_error($link));
+    ) OR die('Database error '.mysqli_error($db_link));
 
 
 /**
@@ -44,5 +44,5 @@ $link =
 return array(
     'page'     => $page,
     'dogecoin' => $dogecoin,
-    'link'     => $link,
+    'db_link'  => $db_link,
 );
