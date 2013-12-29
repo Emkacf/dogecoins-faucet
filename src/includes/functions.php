@@ -33,7 +33,7 @@ function get_request_page()
 function print_view($name, array $vars = array())
 {
     // zakładamy, że wszystkie widoki są w odpowiednim katalogu
-    $view_path = APP_PATH.'view/'.$name.'.php';
+    $view_path = APP_PATH.'includes/view/'.$name.'.php';
 
     // upewniamy się, że plik z widokiem istnieje
     if (!is_file($view_path)) {
