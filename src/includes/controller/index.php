@@ -11,7 +11,7 @@ function index_action(array $app)
     $db_link  = $app['db_link'];
 
     $status = $_GET['status'];
-    $doge = $_GET['doge'];
+    $doge   = $_GET['doge'];
 
     $account_address = $dogecoin->getaccountaddress('dogecoins');
 
@@ -22,11 +22,12 @@ function index_action(array $app)
     print_view('template/template', array(
         'content_view' => 'page/index',
         'content_vars' => array(
-            'status'         => $status,
-            'doge'           => $doge,
-            'payout_average' => $payout_average,
-            'payout_daily'   => $payout_daily,
-            'payout_total'   => $payout_total,
+            'status'          => $status,
+            'doge'            => $doge,
+            'account_address' => $account_address,
+            'payout_average'  => $payout_average,
+            'payout_daily'    => $payout_daily,
+            'payout_total'    => $payout_total,
         ),
     ));
 }
