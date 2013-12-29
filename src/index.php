@@ -22,6 +22,14 @@ $payout_average = get_avarage_payout($link);
 $payout_daily = get_daily_payout($link);
 $payout_total = get_total_payout($link);
 
-$content_view = 'index';
 
-require_once APP_PATH.'view/template.php';
+print_view('template', array(
+    'content_view' => 'index',
+    'content_vars' => array(
+        'status'         => $status,
+        'doge'           => $doge,
+        'payout_average' => $payout_average,
+        'payout_daily'   => $payout_daily,
+        'payout_total'   => $payout_total,
+    ),
+));

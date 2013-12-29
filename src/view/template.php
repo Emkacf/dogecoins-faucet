@@ -3,21 +3,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <?php require_once APP_PATH.'view/head.php'; ?>
+        <?php print_view('head'); ?>
     </head>
 
     <body>
         <!-- Wrap all page content here -->
         <div id="wrap">
 
-            <?php require_once APP_PATH.'view/header.php'; ?>
+            <?php print_view('header'); ?>
 
             <!-- Begin page content -->
             <div class="container">
-                <?php require_once APP_PATH.'view/'.$content_view.'.php'; ?>
+                <?php print_view($content_view, $content_vars); ?>
             </div>
 
-            <?php require_once APP_PATH.'view/footer.php'; ?>
+            <?php print_view('footer'); ?>
 
         </div>
     </body>
