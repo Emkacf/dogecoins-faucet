@@ -1,6 +1,6 @@
 <?php defined('APP_PATH') OR die('Access denied'); ?>
 
-<form class="form-horizontal gora" role="form" action="send.php" method="POST">
+<form class="form-horizontal gora" role="form" action="index.php/send" method="POST">
     <div class="form-group">
         <div class="col-sm-10">
             <input
