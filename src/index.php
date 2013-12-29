@@ -11,7 +11,15 @@ error_reporting(0);
  */
 define('APP_PATH', __DIR__.DIRECTORY_SEPARATOR);
 
-require_once APP_PATH.'includes/bootstrap.php';
+/**
+ * Ładujemy aplikację
+ */
+$app = require_once APP_PATH.'includes/bootstrap.php';
+
+/**
+ * Ładujemy odpowiednią stronę
+ */
+$page = $app['page'];
 
 if (empty($page)) {
     /**
