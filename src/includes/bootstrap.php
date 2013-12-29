@@ -1,11 +1,41 @@
 <?php defined('APP_PATH') OR die('Access denied');
 
+/**
+ * Ładujemy niezbędne pliki
+ */
 require_once APP_PATH.'includes/jsonRPCClient.php';
 require_once APP_PATH.'includes/functions.php';
 
-require_once APP_PATH.'includes/config.php';
 
+/**
+ * Ładujemy konfigurację
+ */
+$config = require_once APP_PATH.'includes/config.php';
+
+
+/**
+ * Inicjalizujemy przydatne rzeczy
+ */
 $page = get_request_page();
+
+$dogecoin = new jsonRPCClient(
+    sprintf(
+        'http://%s:%s@%s:%s/',
+        $config['rpc']['name'],
+        $config['rpc']['pass'],
+        $config['rpc']['host'],
+        $config['rpc']['port']
+    )
+);
+
+$link =
+    mysqli_connect(
+        $config['database']['host'],
+        $config['database']['user'],
+        $config['database']['pass'],
+        $config['database']['name']
+    ) OR die('Database error '.mysqli_error($link));
+
 
 /**
  * Zwracamy rzeczy, które reprezentują naszą „aplikację”

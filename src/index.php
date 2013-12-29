@@ -16,11 +16,13 @@ define('APP_PATH', __DIR__.DIRECTORY_SEPARATOR);
  */
 $app = require_once APP_PATH.'includes/bootstrap.php';
 
+$page     = $app['page'];
+$dogecoin = $app['dogecoin'];
+$link     = $app['link'];
+
 /**
  * Ładujemy odpowiednią stronę
  */
-$page = $app['page'];
-
 if (empty($page)) {
     /**
      * Domyślnie wyświetlamy stronę główną
