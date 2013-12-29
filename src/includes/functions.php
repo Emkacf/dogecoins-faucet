@@ -1,6 +1,30 @@
 <?php defined('APP_PATH') OR die('Access denied');
 
 /**
+ * Zwraca nazwę żądanej strony na podstawie aktualnego adresu URL.
+ *
+ * @return string
+ */
+function get_request_page()
+{
+    // o stronie decydujemy na podstawie adresu
+    $page = $_SERVER['REQUEST_URI'];
+
+    // pozbywamy się zbędnej nazwy pliku
+    $page = str_replace('index.php', '', $page);
+
+    // pozbywamy się części z parametrami GET
+    if ($pos = strpos($page, '?')) {
+        $page = substr($page, 0, $pos);
+    }
+
+    // wywalamy zbędne slashe
+    $page = trim($page, '/');
+
+    return $page;
+}
+
+/**
  * Ładuje i wyświetla wybrany widok.
  *
  * @param string $name Nazwa widoku
@@ -9,7 +33,7 @@
 function print_view($name, array $vars = array())
 {
     // zakładamy, że wszystkie widoki są w odpowiednim katalogu
-    $view_path = APP_PATH.'view/'.$name.'.php';
+    $view_path = APP_PATH.'includes/view/'.$name.'.php';
 
     // upewniamy się, że plik z widokiem istnieje
     if (!is_file($view_path)) {
