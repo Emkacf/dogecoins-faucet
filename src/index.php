@@ -23,8 +23,8 @@ $payout_daily = get_daily_payout($link);
 $payout_total = get_total_payout($link);
 
 
-print_view('template', array(
-    'content_view' => 'index',
+print_view('template/template', array(
+    'content_view' => 'page/index',
     'content_vars' => array(
         'status'         => $status,
         'doge'           => $doge,
