@@ -22,4 +22,6 @@ $payout_average = get_avarage_payout($link);
 $payout_daily = get_daily_payout($link);
 $payout_total = get_total_payout($link);
 
+$content_view = 'index';
+
 require_once APP_PATH.'view/template.php';

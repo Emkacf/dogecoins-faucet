@@ -14,7 +14,7 @@
 
             <!-- Begin page content -->
             <div class="container">
-                <?php require_once APP_PATH.'view/index.php'; ?>
+                <?php require_once APP_PATH.'view/'.$content_view.'.php'; ?>
             </div>
 
             <?php require_once APP_PATH.'view/footer.php'; ?>
