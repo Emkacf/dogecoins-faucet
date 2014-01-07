@@ -3,7 +3,7 @@ dogecoins-faucet
 
 You can see this faucet on http://faucet.dogecoins.pl/
 
-I'm just a newbie so I will appreciate your help with further developing this faucet. You can also visit our official polish Dogecoin portal http://dogecoins.pl and give us donation in DOGE to keep our faucet full of money.
+I'm just a newbie so I will appreciate your help with further developing this faucet.
 
 You can donate us: DPJ3BjZoZBY36wq1R5kS7SAV1UaQRLHQV3
 
@@ -13,6 +13,8 @@ You must have dogecoin daemon compiled on your server - https://github.com/dogec
 
 changelog
 ================
+v1.3 -  pull requests by MacDada
+
 v1.1 - Added db file
 
 v1.0 - Doesn't have automatic database making yet! Wait 'till tomorrow for new commit with database
